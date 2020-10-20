@@ -1,12 +1,29 @@
-import React from 'react';
+import React from "react";
+import styled from "styled-components";
 
-import GlobalStyles from './GlobalStyles';
+import data from "../data";
+import GlobalStyles from "./GlobalStyles";
+import Typehead from "./Typehead";
+import Suggestion from "./Suggestion";
+
+const Wrapper = styled.div`
+  margin-left: 33vw;
+  margin-top: 5vw;
+`;
 
 const App = (props) => {
   return (
     <>
       <GlobalStyles />
-      {/* TODO */}
+      <Wrapper>
+        <Typehead
+          suggestions={data.books}
+          categories={data.categories}
+          handleSelect={(suggestion) => {
+            window.alert(suggestion);
+          }}
+        />
+      </Wrapper>
     </>
   );
 };
